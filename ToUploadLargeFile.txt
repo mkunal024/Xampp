@@ -1,0 +1,28 @@
+Ques 1: How to upload large file to mysql in xampp?
+
+Solution-> 
+         Step 1: First Open Xampp and go to Xampp Shell.
+		 
+		 Step 2: Type command to open mysql with mysql username and password.
+                     cmd- 'mysql -u root -p pwd'
+					 
+         Step 3: Use the database in which you want to enter the table.
+                     cmd- 'use database_name'	
+					 
+         Step 4: Now give the location to load your data to particular table and some criteria like Ignore first line ,etc.,
+                     cmd- LOAD DATA INFILE 'C:\\New Folder\\Your_table.csv'
+                          INTO TABLE GCA_022545495
+                          FIELDS TERMINATED BY ','
+                          ENCLOSED BY '"'
+                          LINES TERMINATED BY '\n'
+                          IGNORE 1 LINES;
+        REMARK: This Above code is for csv file you can modify it according to your need.						  
+					  
+					  
+		 Step 5:(Not Manadatory)	Sometimes Mysql may give error to load file because of restriction at that time execute a query in mysql
+		             cmd- SHOW VARIABLES LIKE "secure_file_priv";
+					 
+					 Most Probably Folder Path -> C:\ProgramData\MySQL\MySQL Server8.0\Uploads
+					 
+			         Keep Your file in above folder and repeat step 4
+		
